@@ -1,0 +1,145 @@
+/*
+ *
+ * Copyright 2025 gRPC authors.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to
+ * deal in the Software without restriction, including without limitation the
+ * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+ * sell copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+ * IN THE SOFTWARE.
+ *
+ */
+
+use std::sync::Arc;
+use std::time::Duration;
+
+use crate::client::ConnectivityState;
+use crate::client::load_balancing::ChannelController;
+use crate::client::load_balancing::FailingPicker;
+use crate::client::load_balancing::LbPolicy;
+use crate::client::load_balancing::LbPolicyBuilder;
+use crate::client::load_balancing::LbPolicyOptions;
+use crate::client::load_balancing::LbState;
+use crate::client::load_balancing::OneSubchannelPicker;
+use crate::client::load_balancing::Subchannel;
+use crate::client::load_balancing::SubchannelState;
+use crate::client::load_balancing::WorkScheduler;
+use crate::client::name_resolution::Address;
+use crate::client::name_resolution::ResolverUpdate;
+use crate::rt::GrpcRuntime;
+
+pub(crate) static POLICY_NAME: &str = "pick_first";
+
+#[derive(Debug, Default)]
+pub(crate) struct Builder {}
+
+impl LbPolicyBuilder for Builder {
+    type LbPolicy = PickFirstPolicy;
+
+    fn build(&self, options: LbPolicyOptions) -> Self::LbPolicy {
+        PickFirstPolicy {
+            work_scheduler: options.work_scheduler,
+            subchannel: None,
+            next_addresses: Vec::default(),
+            runtime: options.runtime,
+        }
+    }
+
+    fn name(&self) -> &'static str {
+        POLICY_NAME
+    }
+}
+
+pub(crate) fn reg() {
+    super::GLOBAL_LB_REGISTRY.add_builder(Builder {})
+}
+
+#[derive(Debug)]
+pub(crate) struct PickFirstPolicy {
+    work_scheduler: Arc<dyn WorkScheduler>,
+    subchannel: Option<Arc<dyn Subchannel>>,
+    next_addresses: Vec<Address>,
+    runtime: GrpcRuntime,
+}
+
+impl LbPolicy for PickFirstPolicy {
+    type LbConfig = ();
+
+    fn resolver_update(
+        &mut self,
+        update: ResolverUpdate,
+        config: Option<&Self::LbConfig>,
+        channel_controller: &mut dyn ChannelController,
+    ) -> Result<(), String> {
+        let mut addresses = update
+            .endpoints
+            .unwrap()
+            .into_iter()
+            .next()
+            .ok_or("no endpoints")?
+            .addresses;
+
+        let address = addresses.pop().ok_or("no addresses")?;
+
+        let (sc, _state) = channel_controller.new_subchannel(&address);
+        sc.connect();
+        self.subchannel = Some(sc);
+
+        self.next_addresses = addresses;
+        let work_scheduler = self.work_scheduler.clone();
+        let runtime = self.runtime.clone();
+        // TODO: Implement Drop that cancels this task.
+        self.runtime.spawn(Box::pin(async move {
+            runtime.sleep(Duration::from_millis(200)).await;
+            work_scheduler.schedule_work();
+        }));
+        // TODO: return a picker that queues RPCs.
+        Ok(())
+    }
+
+    fn subchannel_update(
+        &mut self,
+        subchannel: Arc<dyn Subchannel>,
+        state: &SubchannelState,
+        channel_controller: &mut dyn ChannelController,
+    ) {
+        match state.connectivity_state {
+            // Assume the update is for our subchannel.
+            ConnectivityState::Ready => {
+                channel_controller.update_picker(LbState {
+                    connectivity_state: ConnectivityState::Ready,
+                    picker: Arc::new(OneSubchannelPicker {
+                        sc: self.subchannel.clone().unwrap(),
+                    }),
+                });
+            }
+            ConnectivityState::TransientFailure => {
+                channel_controller.update_picker(LbState {
+                    connectivity_state: ConnectivityState::TransientFailure,
+                    picker: Arc::new(FailingPicker {
+                        error: state.last_connection_error.clone().unwrap(),
+                    }),
+                });
+            }
+            _ => {}
+        }
+    }
+
+    fn work(&mut self, channel_controller: &mut dyn ChannelController) {}
+
+    fn exit_idle(&mut self, _channel_controller: &mut dyn ChannelController) {
+        todo!("implement exit_idle")
+    }
+}

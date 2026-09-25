@@ -1,0 +1,14 @@
+{
+  "tokio": "third_party/core/tokio/tokio",
+  "tokio-macros": "third_party/core/tokio/tokio-macros",
+  "tokio-stream": "third_party/core/tokio/tokio-stream",
+  "tokio-util": "third_party/core/tokio/tokio-util",
+  "tonic": "third_party/networking/tonic/tonic",
+  "tonic-build": "third_party/networking/tonic/tonic-build",
+  "tonic-prost": "third_party/networking/tonic/tonic-prost",
+  "tonic-prost-build": "third_party/networking/tonic/tonic-prost-build",
+  "prost": "third_party/data/prost/prost",
+  "prost-build": "third_party/data/prost/prost-build",
+  "prost-derive": "third_party/data/prost/prost-derive",
+  "prost-types": "third_party/data/prost/prost-types"
+}

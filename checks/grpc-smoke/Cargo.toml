@@ -1,0 +1,20 @@
+[package]
+name = "flax-grpc-smoke"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.89"
+publish = false
+
+# An independent consumer, not a member of any vendored workspace.
+[workspace]
+resolver = "2"
+
+[dependencies]
+tokio = { version = "=1.53.1", features = ["macros", "rt-multi-thread", "net", "sync", "time"] }
+tokio-stream = { version = "=0.1.18", features = ["net"] }
+tonic = "=0.14.6"
+tonic-prost = "=0.14.6"
+prost = "=0.14.4"
+
+[build-dependencies]
+tonic-prost-build = "=0.14.6"

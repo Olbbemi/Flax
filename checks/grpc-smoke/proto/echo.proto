@@ -1,0 +1,15 @@
+syntax = "proto3";
+package flax.check;
+
+// A build/transport check, not a service contract for Cress or Poplar.
+service Echo {
+  rpc Send(EchoRequest) returns (EchoReply);
+}
+message EchoRequest {
+  string text = 1;
+  bytes payload = 2;
+}
+message EchoReply {
+  string text = 1;
+  bytes payload = 2;
+}

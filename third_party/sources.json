@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "method": "source-snapshot",
+  "libraries": [
+    {
+      "name": "tokio",
+      "path": "third_party/core/tokio",
+      "upstream": "https://github.com/tokio-rs/tokio.git",
+      "version": "1.53.1",
+      "tag": "tokio-1.53.1",
+      "commit": "75fef53d0a8590c2d1dbb63672aa7b7d1ef51155",
+      "tree": "26def82f663c2936cbd062e54c8cf8db81fc2a1c",
+      "license_file": "third_party/core/tokio/LICENSE",
+      "local_modifications": [],
+      "tracked_file_count": 865
+    },
+    {
+      "name": "tonic",
+      "path": "third_party/networking/tonic",
+      "upstream": "https://github.com/grpc/grpc-rust.git",
+      "version": "0.14.6",
+      "tag": "tonic-v0.14.6",
+      "commit": "6cb6056b5a748bc5a29bd48f4602dbc4e552bb7d",
+      "tree": "0c734355aae871551e2bfdd0b879f4c0c449f117",
+      "license_file": "third_party/networking/tonic/LICENSE",
+      "local_modifications": [],
+      "tracked_file_count": 554
+    },
+    {
+      "name": "prost",
+      "path": "third_party/data/prost",
+      "upstream": "https://github.com/tokio-rs/prost.git",
+      "version": "0.14.4",
+      "tag": "v0.14.4",
+      "commit": "13646cde7eab75c81b3047767aa0a86e7dbecf12",
+      "tree": "f75211ed669a21a81d160de4b1b8ee9cbfddb62a",
+      "license_file": "third_party/data/prost/LICENSE",
+      "local_modifications": [],
+      "tracked_file_count": 225
+    },
+    {
+      "name": "protobuf",
+      "path": "third_party/data/protobuf",
+      "upstream": "https://github.com/protocolbuffers/protobuf.git",
+      "version": "36.2",
+      "tag": "v36.2",
+      "commit": "2c74169b34066ceb8ddb6b882fcb3fb32d737a55",
+      "tree": "55de9e122524ec957159275e6e475f92c42a7a4b",
+      "license_file": "third_party/data/protobuf/LICENSE",
+      "local_modifications": [],
+      "tracked_file_count": 3548
+    },
+    {
+      "name": "abseil-cpp",
+      "path": "third_party/core/abseil-cpp",
+      "upstream": "https://github.com/abseil/abseil-cpp.git",
+      "version": "20250512.1",
+      "tag": "20250512.1",
+      "commit": "76bb24329e8bf5f39704eb10d21b9a80befa7c81",
+      "tree": "5ddcda4d2a13641f9e161eeb9a3321820b9f1052",
+      "license_file": "third_party/core/abseil-cpp/LICENSE",
+      "local_modifications": [],
+      "tracked_file_count": 1532
+    }
+  ]
+}

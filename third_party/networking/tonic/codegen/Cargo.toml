@@ -1,0 +1,15 @@
+[package]
+name = "codegen"
+authors = ["Lucio Franco <luciofranco14@gmail.com>"]
+license = "MIT"
+edition = "2024"
+rust-version = { workspace = true }
+
+[dependencies]
+protox = "0.9"
+prettyplease = "0.2"
+quote = "1"
+syn = "2"
+tempfile = "3.8.0"
+tonic-prost-build = {path = "../tonic-prost-build", default-features = false, features = ["cleanup-markdown"]}
+grpc-protobuf-build = { path = "../grpc-protobuf-build" }
