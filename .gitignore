@@ -1,3 +1,4 @@
 /build/
-/checks/grpc-smoke/target/
+/checks/*/target/
 __pycache__/
+/data/todo/

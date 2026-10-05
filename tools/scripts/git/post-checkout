@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+"""Prepare Flax's shared todo path on the main worktree's initial checkout."""
+
+from pathlib import Path
+import re
+import sys
+
+sys.dont_write_bytecode = True
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "scripts"))
+from link_shared_todo import (
+    LinkError, is_flax, is_main_worktree, link_shared_todo, repository_root,
+)
+
+
+def main():
+    if len(sys.argv) != 4:
+        print("Usage: post-checkout OLD_HEAD NEW_HEAD BRANCH_FLAG", file=sys.stderr)
+        return 1
+    old, _new, branch = sys.argv[1:]
+    if branch != "1" or not re.fullmatch(r"(?:0{40}|0{64})", old):
+        return 0
+    try:
+        root = repository_root(Path.cwd())
+        # worktree add also passes a null old HEAD; preserve the original link.
+        if not is_main_worktree(root) or not is_flax(root):
+            return 0
+        link_shared_todo(root)
+    except (LinkError, OSError, RuntimeError) as error:
+        print(f"Flax post-checkout: {error}", file=sys.stderr)
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
