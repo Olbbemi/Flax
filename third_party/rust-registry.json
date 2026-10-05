@@ -87,6 +87,18 @@
       "classification_basis": "encodes and decodes base64 as bytes or utf8"
     },
     {
+      "name": "base64ct",
+      "version": "1.8.3",
+      "path": "third_party/core/base64ct",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/formats",
+      "commit": "9adf88fe3e6e0fb9f8cf20b54747aff67a3eca6e",
+      "package_sha256": "2af50177e190e07a26ab74f8b1efbfe2ef87da2116221318cb1c2e82baf7de06",
+      "license": "Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "Pure Rust implementation of Base64 (RFC 4648) which avoids any usages of\ndata-dependent branches/LUTs and thereby provides portable \"best effort\"\nconstant-time operation and embedded-friendly no_std support\n"
+    },
+    {
       "name": "bitflags",
       "version": "2.13.2",
       "path": "third_party/core/bitflags",
@@ -97,6 +109,42 @@
       "license": "MIT OR Apache-2.0",
       "license_file": null,
       "classification_basis": "A macro to generate structures which behave like bitflags."
+    },
+    {
+      "name": "block-buffer",
+      "version": "0.12.1",
+      "path": "third_party/core/block-buffer",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/utils",
+      "commit": "cbd0963c685df025c42bed31f78c50d1bada3805",
+      "package_sha256": "d2f6c7dbe95a6ed67ad9f18e57daf93a2f034c524b99fd2b76d18fdfeb6660aa",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Buffer types for block processing of data"
+    },
+    {
+      "name": "bumpalo",
+      "version": "3.20.3",
+      "path": "third_party/core/bumpalo",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/fitzgen/bumpalo",
+      "commit": "84654ace6be4444da3ff102a0a0af3b38c4df4fb",
+      "package_sha256": "72f5acc6cb2ba439de613abc23857ec3d78374d8ed5ac84e9d11336e87da8649",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "A fast bump allocation arena for Rust."
+    },
+    {
+      "name": "byteorder",
+      "version": "1.5.0",
+      "path": "third_party/data/byteorder",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/BurntSushi/byteorder",
+      "commit": "ec068eefa042d494475db125c4b034bd8e9e34dd",
+      "package_sha256": "1fd0f2584146f6f2ef48085050886acf353beff7305ebd1ae69500e27c67f64b",
+      "license": "Unlicense OR MIT",
+      "license_file": null,
+      "classification_basis": "Library for reading/writing numbers in big-endian and little-endian."
     },
     {
       "name": "bytes",
@@ -111,6 +159,18 @@
       "classification_basis": "Types and traits for working with bytes"
     },
     {
+      "name": "cc",
+      "version": "1.6.0",
+      "path": "third_party/core/cc",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/rust-lang/cc-rs",
+      "commit": "25fa77c122f3a955015f3293cd616e97bda94f1d",
+      "package_sha256": "f74872d07caf508b30a21f6836e7d7016a2eaf7d9ff4f48deaa58cd8a0407630",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "A build-time dependency for Cargo build scripts to assist in invoking the native\nC compiler to compile native C code into a static archive to be linked into Rust\ncode.\n"
+    },
+    {
       "name": "cfg-if",
       "version": "1.0.5",
       "path": "third_party/core/cfg-if",
@@ -121,6 +181,162 @@
       "license": "MIT OR Apache-2.0",
       "license_file": null,
       "classification_basis": "A macro to ergonomically define an item depending on a large number of #[cfg]\nparameters. Structured like an if-else chain, the first matching branch is the\nitem that gets emitted."
+    },
+    {
+      "name": "chacha20",
+      "version": "0.10.2",
+      "path": "third_party/core/chacha20",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/stream-ciphers",
+      "commit": "6b236b758a0279f64d777797514813b2cb572c8b",
+      "package_sha256": "65c35e4b699c7e15ccbe7ee35c005e4fc0a278d22238a2857e6ce2dadeda1b06",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "The ChaCha20 stream cipher (RFC 8439) implemented in pure Rust using traits\nfrom the RustCrypto `cipher` crate, with optional architecture-specific\nhardware acceleration (AVX2, SSE2). Additionally provides the ChaCha8, ChaCha12,\nXChaCha20, XChaCha12 and XChaCha8 stream ciphers, and also optional\nrand_core-compatible RNGs based on those ciphers.\n"
+    },
+    {
+      "name": "cmov",
+      "version": "0.5.4",
+      "path": "third_party/core/cmov",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/utils",
+      "commit": "5c7e4f9bb31af81bf766360e836b6d633b84dbff",
+      "package_sha256": "0c9ea0ac24bc397ab3c98583a3c9ba74fa56b09a4449bbe172b9b1ddb016027a",
+      "license": "Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "Conditional move CPU intrinsics which are guaranteed on major platforms (ARM32/ARM64, x86/x86_64,\nRISC-V) to execute in constant-time and not be rewritten as branches by the compiler. Provides\nwrappers for the CMOV family of instructions on x86/x86_64 and CSEL on AArch64, along with a\nportable \"best-effort\" pure Rust fallback implementation.\n"
+    },
+    {
+      "name": "const-oid",
+      "version": "0.10.2",
+      "path": "third_party/data/const-oid/0.10",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/formats",
+      "commit": "385ef739bcec785472c7c971c57f26f87caca3b8",
+      "package_sha256": "a6ef517f0926dd24a1582492c791b6a4818a4d94e789a334894aa15b0d12f55c",
+      "license": "Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "Const-friendly implementation of the ISO/IEC Object Identifier (OID) standard\nas defined in ITU X.660, with support for BER/DER encoding/decoding as well as\nheapless no_std (i.e. embedded) support\n"
+    },
+    {
+      "name": "const-oid",
+      "version": "0.9.6",
+      "path": "third_party/data/const-oid/0.9",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/formats/tree/master/const-oid",
+      "commit": "4432bcc0b2b721865740517e609e166e01726ccc",
+      "package_sha256": "c2459377285ad874054d797f3ccebf984978aa39129f6eafde5cdc8315b612f8",
+      "license": "Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "Const-friendly implementation of the ISO/IEC Object Identifier (OID) standard\nas defined in ITU X.660, with support for BER/DER encoding/decoding as well as\nheapless no_std (i.e. embedded) support\n"
+    },
+    {
+      "name": "cpufeatures",
+      "version": "0.3.1",
+      "path": "third_party/core/cpufeatures",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/utils",
+      "commit": "e3ac92bfd33051e146025baa2d0ce79891b7fc73",
+      "package_sha256": "5ca28b0ae3115b884660db4118d803791fd6756b6e88f39c0f3f7859060d7566",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Lightweight runtime CPU feature detection for aarch64, loongarch64, and x86/x86_64 targets,\nwith no_std support and support for mobile targets including Android and iOS\n"
+    },
+    {
+      "name": "crypto-common",
+      "version": "0.2.2",
+      "path": "third_party/core/crypto-common",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/traits",
+      "commit": "93dee26c6bde3741a197f1c5f6b7baac277705f3",
+      "package_sha256": "ce6e4c961d6cd6c9a86db418387425e8bdeaf05b3c8bc1411e6dca4c252f1453",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Common traits used by cryptographic algorithms"
+    },
+    {
+      "name": "ctutils",
+      "version": "0.4.2",
+      "path": "third_party/core/ctutils",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/utils",
+      "commit": "53f7fc3fa806e6d4e9650675e7b97d3621cff340",
+      "package_sha256": "7d5515a3834141de9eafb9717ad39eea8247b5674e6066c404e8c4b365d2a29e",
+      "license": "Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "Constant-time utility library with selection and equality testing support targeting cryptographic\napplications. Supports `const fn` where appropriate. Built on the `cmov` crate which provides\narchitecture-specific predication intrinsics. Heavily inspired by the `subtle` crate.\n"
+    },
+    {
+      "name": "deadpool",
+      "version": "0.13.1",
+      "path": "third_party/core/deadpool",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/deadpool-rs/deadpool",
+      "commit": "bba260f93ef4f7a63c82799563f92518b9e5d42a",
+      "package_sha256": "3e98a7e119cd347f4201e1159b19831029e203e2d8b790547708e8157b4acf1e",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Dead simple async pool"
+    },
+    {
+      "name": "deadpool-postgres",
+      "version": "0.14.2",
+      "path": "third_party/data/deadpool-postgres",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/deadpool-rs/deadpool",
+      "commit": "bba260f93ef4f7a63c82799563f92518b9e5d42a",
+      "package_sha256": "65a536565624b97fc19f758cd01b15d12908d3344425066efc8162236fbd3749",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Dead simple async pool for tokio-postgres"
+    },
+    {
+      "name": "deadpool-runtime",
+      "version": "0.3.1",
+      "path": "third_party/core/deadpool-runtime",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/deadpool-rs/deadpool",
+      "commit": "362391f640a0a041ec246370c67a99e7b34c9312",
+      "package_sha256": "2657f61fb1dd8bf37a8d51093cc7cee4e77125b22f7753f49b289f831bec2bae",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Dead simple async pool utilities for async runtimes"
+    },
+    {
+      "name": "der",
+      "version": "0.7.10",
+      "path": "third_party/data/der",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/formats/tree/master/der",
+      "commit": "b7a60edfc7cb0d657e6b3d7b4f7fb0ceeed2e4e6",
+      "package_sha256": "e7c1832837b905bbfb5101e07cc24c8deddf52f93225eee6ead5f4d63d53ddcb",
+      "license": "Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "Pure Rust embedded-friendly implementation of the Distinguished Encoding Rules\n(DER) for Abstract Syntax Notation One (ASN.1) as described in ITU X.690 with\nfull support for heapless no_std targets\n"
+    },
+    {
+      "name": "der_derive",
+      "version": "0.7.3",
+      "path": "third_party/data/der_derive",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/formats/tree/master/der/derive",
+      "commit": "a4ad7d0a40bf98655bec0069119d473b9aad760b",
+      "package_sha256": "8034092389675178f570469e6c3b0465d3d30b4505c294a6550db47f3c17ad18",
+      "license": "Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "Custom derive support for the `der` crate's `Choice` and `Sequence` traits"
+    },
+    {
+      "name": "digest",
+      "version": "0.11.3",
+      "path": "third_party/core/digest",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/traits",
+      "commit": "2fb9ed8922e244117040bb037a7d141a6a2b8228",
+      "package_sha256": "f1dd6dbb5841937940781866fa1281a1ff7bd3bf827091440879f9994983d5c2",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Traits for cryptographic hash functions and message authentication codes"
     },
     {
       "name": "either",
@@ -159,6 +375,18 @@
       "classification_basis": "Cross-platform interface to the `errno` variable."
     },
     {
+      "name": "fallible-iterator",
+      "version": "0.2.0",
+      "path": "third_party/data/fallible-iterator",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/sfackler/rust-fallible-iterator",
+      "commit": "03b701c04b37fcd1ab1045c4623542606abf378b",
+      "package_sha256": "4443176a9f2c162692bd3d352d745ef9413eec5782a80d8fd6f8a1ac692a07f7",
+      "license": "MIT/Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Fallible iterator traits"
+    },
+    {
       "name": "fastrand",
       "version": "2.5.0",
       "path": "third_party/core/fastrand",
@@ -171,6 +399,18 @@
       "classification_basis": "A simple and fast random number generator"
     },
     {
+      "name": "find-msvc-tools",
+      "version": "0.1.14",
+      "path": "third_party/core/find-msvc-tools",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/rust-lang/cc-rs",
+      "commit": "6b0d8e68bf09545a4de9a3cc10efcc0e4b6211bd",
+      "package_sha256": "aedcfb3409746eddb02b9e19ebda1c3394f759a152e48ee875a0844d1b955484",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Find windows-specific tools, read MSVC versions from the registry and from COM interfaces"
+    },
+    {
       "name": "fixedbitset",
       "version": "0.5.7",
       "path": "third_party/data/fixedbitset",
@@ -181,6 +421,18 @@
       "license": "MIT OR Apache-2.0",
       "license_file": null,
       "classification_basis": "FixedBitSet is a simple bitset collection"
+    },
+    {
+      "name": "flagset",
+      "version": "0.4.7",
+      "path": "third_party/data/flagset",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/enarx/flagset",
+      "commit": "a268760a22ae833593e8e4cdd84ab44d2af31fda",
+      "package_sha256": "b7ac824320a75a52197e8f2d787f6a38b6718bb6897a35142d749af3c0e8f4fe",
+      "license": "Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Data types and a macro for generating enumeration-based bit flags"
     },
     {
       "name": "fnv",
@@ -231,6 +483,18 @@
       "classification_basis": "The core traits and types in for the `futures` library."
     },
     {
+      "name": "futures-macro",
+      "version": "0.3.34",
+      "path": "third_party/core/futures-macro",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/rust-lang/futures-rs",
+      "commit": "705e6b5c0f06535b1aac1cb1989a172b3d45be8c",
+      "package_sha256": "9fb9654ba8355388abeb8dcb4fc62f511300867002afc858860463bdd9fe0c44",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "The futures-rs procedural macro implementations.\n"
+    },
+    {
       "name": "futures-sink",
       "version": "0.3.34",
       "path": "third_party/core/futures-sink",
@@ -268,8 +532,20 @@
     },
     {
       "name": "getrandom",
+      "version": "0.2.17",
+      "path": "third_party/core/getrandom/0.2",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/rust-random/getrandom",
+      "commit": "b625985d852600a3eeb68556811e59e7c9a6a098",
+      "package_sha256": "ff2abc00be7fca6ebc474524697ae276ad847ad0a6b3faa4bcb027e9a4614ad0",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "A small cross-platform library for retrieving random data from system source"
+    },
+    {
+      "name": "getrandom",
       "version": "0.4.3",
-      "path": "third_party/core/getrandom",
+      "path": "third_party/core/getrandom/0.4",
       "registry": "https://crates.io",
       "repository": "https://github.com/rust-random/getrandom",
       "commit": "5e7cd5733536844a9856dc7259bd4696bbe5e3ae",
@@ -325,6 +601,18 @@
       "license": "MIT OR Apache-2.0",
       "license_file": null,
       "classification_basis": "heck is a case conversion library."
+    },
+    {
+      "name": "hmac",
+      "version": "0.13.0",
+      "path": "third_party/core/hmac",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/MACs",
+      "commit": "0236c8eb50098dd7f277a71ab89caaeb1e7314df",
+      "package_sha256": "6303bc9732ae41b04cb554b844a762b4115a61bfaa81e3e83050991eeb56863f",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Generic implementation of Hash-based Message Authentication Code (HMAC)"
     },
     {
       "name": "http",
@@ -385,6 +673,18 @@
       "license": "MIT OR Apache-2.0",
       "license_file": null,
       "classification_basis": "HTTP date parsing and formatting"
+    },
+    {
+      "name": "hybrid-array",
+      "version": "0.4.15",
+      "path": "third_party/core/hybrid-array",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/hybrid-array",
+      "commit": "09310c55b75e2cd408951c7e2e86dba16c63fc68",
+      "package_sha256": "27f864f10dfb56725ce5ce5472bc52252c8f93a4ab86327122cebf62c5f59a17",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Hybrid typenum-based and const generic array types designed to provide the\nflexibility of typenum-based expressions while also allowing interoperability\nand a transition path to const generics\n"
     },
     {
       "name": "hyper",
@@ -459,6 +759,18 @@
       "classification_basis": "Fast integer primitive to string conversion"
     },
     {
+      "name": "js-sys",
+      "version": "0.3.106",
+      "path": "third_party/web/js-sys",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/wasm-bindgen/wasm-bindgen/tree/master/crates/js-sys",
+      "commit": "165586f854c852bcbc4d14d8a75a0a0e0d0abc12",
+      "package_sha256": "7883d941dae510fb2d978fc3fe018c71c9e2892fd38854de3e8b92c2e5ad9cc5",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Bindings for all JS global objects and functions in all JS environments like\nNode.js and browsers, built on `#[wasm_bindgen]` using the `wasm-bindgen` crate.\n"
+    },
+    {
       "name": "libc",
       "version": "0.2.189",
       "path": "third_party/core/libc",
@@ -471,6 +783,18 @@
       "classification_basis": "Raw FFI bindings to platform libraries like libc."
     },
     {
+      "name": "libredox",
+      "version": "0.1.25",
+      "path": "third_party/core/libredox",
+      "registry": "https://crates.io",
+      "repository": "https://gitlab.redox-os.org/redox-os/libredox.git",
+      "commit": "9a9fc664b027a93a2fa5b27167858956c7566d2d",
+      "package_sha256": "61ff90caf6077a803a240f62fdbe88645a890bbca49ef8174c3cb0404362171d",
+      "license": "MIT",
+      "license_file": null,
+      "classification_basis": "Redox stable ABI"
+    },
+    {
       "name": "linux-raw-sys",
       "version": "0.12.1",
       "path": "third_party/core/linux-raw-sys",
@@ -481,6 +805,18 @@
       "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
       "license_file": null,
       "classification_basis": "Generated bindings for Linux's userspace API"
+    },
+    {
+      "name": "lock_api",
+      "version": "0.4.14",
+      "path": "third_party/core/lock_api",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/Amanieu/parking_lot",
+      "commit": "d7828fff7b5d6327ae608e82db45f888b344449a",
+      "package_sha256": "224399e74b87b5f3557511d98dff8b14089b3dadafcab6bb93eab67d3aace965",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Wrappers to create fully-featured Mutex and RwLock types. Compatible with no_std."
     },
     {
       "name": "log",
@@ -505,6 +841,18 @@
       "license": "MIT AND BSD-3-Clause",
       "license_file": null,
       "classification_basis": "A high performance, zero-copy URL router."
+    },
+    {
+      "name": "md-5",
+      "version": "0.11.0",
+      "path": "third_party/core/md-5",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/hashes",
+      "commit": "b5051e5a5e7dc86a6c27c1ec7a390744ebcfb97a",
+      "package_sha256": "69b6441f590336821bb897fb28fc622898ccceb1d6cea3fde5ea86b090c4de98",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "MD5 hash function"
     },
     {
       "name": "memchr",
@@ -555,6 +903,30 @@
       "classification_basis": "A multimap implementation."
     },
     {
+      "name": "objc2-core-foundation",
+      "version": "0.3.2",
+      "path": "third_party/core/objc2-core-foundation",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/madsmtm/objc2",
+      "commit": "7b1abfd750a2cacaea71d6a56ecfb83cb7de560b",
+      "package_sha256": "2a180dd8642fa45cdb7dd721cd4c11b1cadd4929ce112ebd8b9f5803cc79d536",
+      "license": "Zlib OR Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "Bindings to the CoreFoundation framework"
+    },
+    {
+      "name": "objc2-system-configuration",
+      "version": "0.3.2",
+      "path": "third_party/core/objc2-system-configuration",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/madsmtm/objc2",
+      "commit": "7b1abfd750a2cacaea71d6a56ecfb83cb7de560b",
+      "package_sha256": "7216bd11cbda54ccabcab84d523dc93b858ec75ecfb3a7d89513fa22464da396",
+      "license": "Zlib OR Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "Bindings to the SystemConfiguration framework"
+    },
+    {
       "name": "once_cell",
       "version": "1.21.4",
       "path": "third_party/core/once_cell",
@@ -565,6 +937,30 @@
       "license": "MIT OR Apache-2.0",
       "license_file": null,
       "classification_basis": "Single assignment cells and lazy values."
+    },
+    {
+      "name": "parking_lot",
+      "version": "0.12.5",
+      "path": "third_party/core/parking_lot",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/Amanieu/parking_lot",
+      "commit": "d7828fff7b5d6327ae608e82db45f888b344449a",
+      "package_sha256": "93857453250e3077bd71ff98b6a65ea6621a19bb0f559a85248955ac12c45a1a",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "More compact and efficient implementations of the standard synchronization primitives."
+    },
+    {
+      "name": "parking_lot_core",
+      "version": "0.9.12",
+      "path": "third_party/core/parking_lot_core",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/Amanieu/parking_lot",
+      "commit": "d7828fff7b5d6327ae608e82db45f888b344449a",
+      "package_sha256": "2621685985a2ebf1c516881c026032ac7deafcda1a2c9b7850dc81e3dfcb64c1",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "An advanced API for creating custom synchronization primitives."
     },
     {
       "name": "percent-encoding",
@@ -589,6 +985,30 @@
       "license": "MIT OR Apache-2.0",
       "license_file": null,
       "classification_basis": "Graph data structure library. Provides graph types and graph algorithms."
+    },
+    {
+      "name": "phf",
+      "version": "0.13.1",
+      "path": "third_party/data/phf",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/rust-phf/rust-phf",
+      "commit": "1e518a6e94a2444b8df7d89078cfc69859537971",
+      "package_sha256": "c1562dc717473dbaa4c1f85a36410e03c047b2e7df7f45ee938fbef64ae7fadf",
+      "license": "MIT",
+      "license_file": null,
+      "classification_basis": "Runtime support for perfect hash function data structures"
+    },
+    {
+      "name": "phf_shared",
+      "version": "0.13.1",
+      "path": "third_party/data/phf_shared",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/rust-phf/rust-phf",
+      "commit": "1e518a6e94a2444b8df7d89078cfc69859537971",
+      "package_sha256": "e57fef6bc5981e38c2ce2d63bfa546861309f875b8a75f092d1d54ae2d64f266",
+      "license": "MIT",
+      "license_file": null,
+      "classification_basis": "Support code shared by PHF libraries"
     },
     {
       "name": "pin-project",
@@ -625,6 +1045,30 @@
       "license": "Apache-2.0 OR MIT",
       "license_file": null,
       "classification_basis": "A lightweight version of pin-project written with declarative macros."
+    },
+    {
+      "name": "postgres-protocol",
+      "version": "0.6.12",
+      "path": "third_party/data/postgres-protocol",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/rust-postgres/rust-postgres",
+      "commit": "76062c9b242da6aada065c021aa3083d0922f7d2",
+      "package_sha256": "08808e3c483c46e999108051c78334f473d5adb59d78bb80a1268c7e6aa6c514",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Low level Postgres protocol APIs"
+    },
+    {
+      "name": "postgres-types",
+      "version": "0.2.14",
+      "path": "third_party/data/postgres-types",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/rust-postgres/rust-postgres",
+      "commit": "70cf8eb6d5ea89e9fa0c862d6c557822484f2e45",
+      "package_sha256": "851ca9db4932932d69f3ea811b1abe63087a0f740a47692619dd40d4899b68be",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Conversions between Rust and Postgres values"
     },
     {
       "name": "prettyplease",
@@ -699,6 +1143,42 @@
       "classification_basis": "UEFI Reference Specification Protocol Constants and Definitions"
     },
     {
+      "name": "rand",
+      "version": "0.10.3",
+      "path": "third_party/core/rand",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/rust-random/rand",
+      "commit": "9e7d328f60d6372ae22927f37d1a816fc980f25e",
+      "package_sha256": "65c9fb96cbc91e3478eaae79a69fcd3f1ae4ad052e471fe6732fff548984b4af",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Random number generators and other randomness functionality.\n"
+    },
+    {
+      "name": "rand_core",
+      "version": "0.10.1",
+      "path": "third_party/core/rand_core",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/rust-random/rand_core",
+      "commit": "5cd7df496d0bff1d95534ac8b66a2610f5bf7808",
+      "package_sha256": "63b8176103e19a2643978565ca18b50549f6101881c443590420e4dc998a3c69",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Core random number generation traits and tools for implementation."
+    },
+    {
+      "name": "redox_syscall",
+      "version": "0.5.18",
+      "path": "third_party/core/redox_syscall",
+      "registry": "https://crates.io",
+      "repository": "https://gitlab.redox-os.org/redox-os/syscall",
+      "commit": "15aa8e32ef0f3328dd9d48cc8ca02e148a362069",
+      "package_sha256": "ed2bf2547551a7053d6fdfafda3f938979645c44812fbfcda098faae3f1a362d",
+      "license": "MIT",
+      "license_file": null,
+      "classification_basis": "A Rust library to access raw Redox system calls"
+    },
+    {
       "name": "regex",
       "version": "1.13.1",
       "path": "third_party/data/regex",
@@ -735,6 +1215,18 @@
       "classification_basis": "A regular expression parser."
     },
     {
+      "name": "ring",
+      "version": "0.17.14",
+      "path": "third_party/core/ring",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/briansmith/ring",
+      "commit": "2723abbca9e83347d82b056d5b239c6604f786df",
+      "package_sha256": "a4689e6c2294d81e88dc6261c768b63bc4fcdb852be6d1352498b114f61383b7",
+      "license": "Apache-2.0 AND ISC",
+      "license_file": null,
+      "classification_basis": "An experiment."
+    },
+    {
       "name": "rustix",
       "version": "1.1.5",
       "path": "third_party/core/rustix",
@@ -745,6 +1237,78 @@
       "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
       "license_file": null,
       "classification_basis": "Safe Rust bindings to POSIX/Unix/Linux/Winsock-like syscalls"
+    },
+    {
+      "name": "rustls",
+      "version": "0.23.45",
+      "path": "third_party/networking/rustls",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/rustls/rustls",
+      "commit": "2976d90fd1c2db6b518700dd101b714069cfcb17",
+      "package_sha256": "0d41d731c7d2f962d1ccc364cec258de3c0e93b38c2fb3ba97ac74513048d634",
+      "license": "Apache-2.0 OR ISC OR MIT",
+      "license_file": null,
+      "classification_basis": "Rustls is a modern TLS library written in Rust."
+    },
+    {
+      "name": "rustls-pki-types",
+      "version": "1.15.1",
+      "path": "third_party/networking/rustls-pki-types",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/rustls/pki-types",
+      "commit": "e29ad15465126acc089b39611bcec85e27ce0817",
+      "package_sha256": "2f4925028c7eb5d1fcdaf196971378ed9d2c1c4efc7dc5d011256f76c99c0a96",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Shared types for the rustls PKI ecosystem"
+    },
+    {
+      "name": "rustls-webpki",
+      "version": "0.103.15",
+      "path": "third_party/networking/rustls-webpki",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/rustls/webpki",
+      "commit": "c14836d8de33c0ad0ac7dcb28fe9aade20831a4d",
+      "package_sha256": "f3c3cf1d8b1e7d4927e2d154c3fcb02979afb9939629c62cd9048d4f07b60ac2",
+      "license": "ISC",
+      "license_file": null,
+      "classification_basis": "Web PKI X.509 Certificate Verification."
+    },
+    {
+      "name": "rustversion",
+      "version": "1.0.23",
+      "path": "third_party/core/rustversion",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/dtolnay/rustversion",
+      "commit": "3a7c76605450b9a7299c6502a421909de9126a59",
+      "package_sha256": "cf54715a573b99ac80df0bc206da022bcd442c974952c7b9720069370852e21f",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Conditional compilation according to rustc compiler version"
+    },
+    {
+      "name": "scopeguard",
+      "version": "1.2.0",
+      "path": "third_party/core/scopeguard",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/bluss/scopeguard",
+      "commit": "bb988222848d39b0b9037b29da3a3a1eb05ebf4b",
+      "package_sha256": "94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "A RAII scope guard that will run a given closure when it goes out of scope,\neven if the code between panics (assuming unwinding panic).\n\nDefines the macros `defer!`, `defer_on_unwind!`, `defer_on_success!` as\nshorthands for guards with one of the implemented strategies.\n"
+    },
+    {
+      "name": "serde",
+      "version": "1.0.229",
+      "path": "third_party/core/serde",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/serde-rs/serde",
+      "commit": "7fc3b4c30c94f73a96ebd1553f2b090d928fc3a8",
+      "package_sha256": "4148590afebada386688f18773da617792bf2ef03ffc1e4cbd2b1d45b023e0ba",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "A generic serialization/deserialization framework"
     },
     {
       "name": "serde_core",
@@ -769,6 +1333,42 @@
       "license": "MIT OR Apache-2.0",
       "license_file": null,
       "classification_basis": "Macros 1.1 implementation of #[derive(Serialize, Deserialize)]"
+    },
+    {
+      "name": "sha2",
+      "version": "0.11.0",
+      "path": "third_party/core/sha2",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/hashes",
+      "commit": "ffe093984c004769747e998f77da8ff7c0e7a765",
+      "package_sha256": "446ba717509524cb3f22f17ecc096f10f4822d76ab5c0b9822c5f9c284e825f4",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Pure Rust implementation of the SHA-2 hash function family\nincluding SHA-224, SHA-256, SHA-384, and SHA-512.\n"
+    },
+    {
+      "name": "shlex",
+      "version": "2.0.1",
+      "path": "third_party/core/shlex",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/comex/rust-shlex",
+      "commit": "e82b1411beb7c92871c2c078c9ab415bbcf207ef",
+      "package_sha256": "f8fadd59c855ef2080decdef8ff161eb6661b86933c9d82e5ba29dc602a55aba",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Split a string into shell words, like Python's shlex."
+    },
+    {
+      "name": "siphasher",
+      "version": "1.0.4",
+      "path": "third_party/core/siphasher",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/jedisct1/rust-siphash",
+      "commit": "ed028f01a16205b0819fa83b0cdc052e2d5ac3b7",
+      "package_sha256": "33f4fe9184a62d842c9ef383018f3306d8ba224fd9d836f56d7288308847c256",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "SipHash-2-4 and SipHash-1-3 keyed hash functions in pure Rust, with 64-bit and 128-bit output and no_std support"
     },
     {
       "name": "slab",
@@ -805,6 +1405,42 @@
       "license": "MIT OR Apache-2.0",
       "license_file": null,
       "classification_basis": "Utilities for handling networking sockets with a maximal amount of configuration\npossible intended."
+    },
+    {
+      "name": "spki",
+      "version": "0.7.3",
+      "path": "third_party/data/spki",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/formats/tree/master/spki",
+      "commit": "15ea461dc3484d48710deed932e4d3d9052c1f9b",
+      "package_sha256": "d91ed6c858b01f942cd56b37a94b3e0a1798290327d1236e4d9cf4eaca44d29d",
+      "license": "Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "X.509 Subject Public Key Info (RFC5280) describing public keys as well as their\nassociated AlgorithmIdentifiers (i.e. OIDs)\n"
+    },
+    {
+      "name": "stringprep",
+      "version": "0.1.5",
+      "path": "third_party/data/stringprep",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/sfackler/rust-stringprep",
+      "commit": "97e2588933017b48122e8bb574efebb7410fa71c",
+      "package_sha256": "7b4df3d392d81bd458a8a621b8bffbd2302a12ffe288a9d931670948749463b1",
+      "license": "MIT/Apache-2.0",
+      "license_file": null,
+      "classification_basis": "An implementation of the stringprep algorithm"
+    },
+    {
+      "name": "subtle",
+      "version": "2.6.1",
+      "path": "third_party/core/subtle",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/dalek-cryptography/subtle",
+      "commit": "5457b5448b021d1da101ababbb854e6657233943",
+      "package_sha256": "13c2bddecc57b384dee18652358fb23172facb8a2c51ccc10d74c157bdea3292",
+      "license": "BSD-3-Clause",
+      "license_file": null,
+      "classification_basis": "Pure-Rust traits and utilities for constant-time cryptographic implementations."
     },
     {
       "name": "syn",
@@ -853,6 +1489,78 @@
       "license": "MIT OR Apache-2.0",
       "license_file": null,
       "classification_basis": "A library for managing temporary files and directories."
+    },
+    {
+      "name": "tinyvec",
+      "version": "1.13.3",
+      "path": "third_party/data/tinyvec",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/Lokathor/tinyvec",
+      "commit": "e343bbbb5a6594c9d57de718e6f232e6c0115dcb",
+      "package_sha256": "fd3ca314f692efd6c868f8408f53fe444634a845f96c028b97d35f6a1f79f0ee",
+      "license": "Zlib OR Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "`tinyvec` provides 100% safe vec-like data structures."
+    },
+    {
+      "name": "tls_codec",
+      "version": "0.4.2",
+      "path": "third_party/data/tls_codec",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/formats",
+      "commit": "a0db7a7ecc86057562697c0f65fbd44b56f257bf",
+      "package_sha256": "0de2e01245e2bb89d6f05801c564fa27624dbd7b1846859876c7dad82e90bf6b",
+      "license": "Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "A pure Rust implementation of the TLS (de)serialization"
+    },
+    {
+      "name": "tls_codec_derive",
+      "version": "0.4.2",
+      "path": "third_party/data/tls_codec_derive",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/formats",
+      "commit": "a0db7a7ecc86057562697c0f65fbd44b56f257bf",
+      "package_sha256": "2d2e76690929402faae40aebdda620a2c0e25dd6d3b9afe48867dfd95991f4bd",
+      "license": "Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "Derive macros for the tls_codec trait"
+    },
+    {
+      "name": "tokio-postgres",
+      "version": "0.7.18",
+      "path": "third_party/data/tokio-postgres",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/rust-postgres/rust-postgres",
+      "commit": "f1cb6ec0d5766b136cbd68f3010d64142a5daa66",
+      "package_sha256": "a528f7d280f6d5b9cd149635c8705b0dd049754bc67d81d31fa25169a93809d3",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "A native, asynchronous PostgreSQL client"
+    },
+    {
+      "name": "tokio-postgres-rustls",
+      "version": "0.14.0",
+      "path": "third_party/networking/tokio-postgres-rustls",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/jbg/tokio-postgres-rustls",
+      "commit": "0dd60da1804e6146633e5b87199a00db890b7ef5",
+      "package_sha256": "4c2ad44aa0ae96db89c4742212ed41645b2f597311ff6e1945542a4d9fadc2fb",
+      "license": "MIT",
+      "license_file": null,
+      "classification_basis": "Rustls integration for tokio-postgres"
+    },
+    {
+      "name": "tokio-rustls",
+      "version": "0.26.6",
+      "path": "third_party/networking/tokio-rustls",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/rustls/tokio-rustls",
+      "commit": "8aebb7c9556ea8024c1b974b84a4a6f2e306889a",
+      "package_sha256": "c9cc2678c2cdd569ef8215e2afd7954ada2ae20b4fdd2c5fe6139a3b02d105db",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Asynchronous TLS/SSL streams for Tokio using Rustls."
     },
     {
       "name": "tower",
@@ -939,6 +1647,18 @@
       "classification_basis": "A lightweight atomic lock."
     },
     {
+      "name": "typenum",
+      "version": "1.20.1",
+      "path": "third_party/core/typenum",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/paholg/typenum",
+      "commit": "0db9a0f731981f29266b63586c29fa07e4477b1a",
+      "package_sha256": "b6f5e870be6c3b371b77fe0ee0bafb859fa4964b4404c27de1d380043c4dda20",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Typenum is a Rust library for type-level numbers evaluated at\n    compile time. It currently supports bits, unsigned integers, and signed\n    integers. It also provides a type-level array of type-level numbers, but its\n    implementation is incomplete."
+    },
+    {
       "name": "unicase",
       "version": "2.9.0",
       "path": "third_party/data/unicase",
@@ -951,6 +1671,18 @@
       "classification_basis": "A case-insensitive wrapper around strings."
     },
     {
+      "name": "unicode-bidi",
+      "version": "0.3.18",
+      "path": "third_party/data/unicode-bidi",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/servo/unicode-bidi",
+      "commit": "580b9c6c68fdb689916017e61d5052be3ed349b5",
+      "package_sha256": "5c1cb5db39152898a79168971543b1cb5020dff7fe43c8dc468b0885f5e29df5",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Implementation of the Unicode Bidirectional Algorithm"
+    },
+    {
       "name": "unicode-ident",
       "version": "1.0.26",
       "path": "third_party/core/unicode-ident",
@@ -961,6 +1693,42 @@
       "license": "(MIT OR Apache-2.0) AND Unicode-3.0",
       "license_file": null,
       "classification_basis": "Determine whether characters have the XID_Start or XID_Continue properties according to Unicode Standard Annex #31"
+    },
+    {
+      "name": "unicode-normalization",
+      "version": "0.1.25",
+      "path": "third_party/data/unicode-normalization",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/unicode-rs/unicode-normalization",
+      "commit": "5a69b3bafb625caccdec7871a42bed0d9a6604d1",
+      "package_sha256": "5fd4f6878c9cb28d874b009da9e8d183b5abc80117c40bbd187a1fde336be6e8",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "This crate provides functions for normalization of\nUnicode strings, including Canonical and Compatible\nDecomposition and Recomposition, as described in\nUnicode Standard Annex #15.\n"
+    },
+    {
+      "name": "unicode-properties",
+      "version": "0.1.4",
+      "path": "third_party/data/unicode-properties",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/unicode-rs/unicode-properties",
+      "commit": "5397cff4305ae3783a0770ac71c2e160fb137082",
+      "package_sha256": "7df058c713841ad818f1dc5d3fd88063241cc61f49f5fbea4b951e8cf5a8d71d",
+      "license": "MIT/Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Query character Unicode properties according to\nUAX #44 and UTR #51.\n"
+    },
+    {
+      "name": "untrusted",
+      "version": "0.9.0",
+      "path": "third_party/core/untrusted",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/briansmith/untrusted",
+      "commit": "89c8b8415f692d3803d183fc5fbf9ec08a6adcf4",
+      "package_sha256": "8ecb6da28b8a351d773b68d5825ac39017e680750f980f3a1a85cd8dd28a47c1",
+      "license": "ISC",
+      "license_file": null,
+      "classification_basis": "Safe, fast, zero-panic, zero-crashing, zero-allocation parsing of untrusted inputs in Rust."
     },
     {
       "name": "want",
@@ -977,7 +1745,7 @@
     {
       "name": "wasi",
       "version": "0.11.1+wasi-snapshot-preview1",
-      "path": "third_party/core/wasi",
+      "path": "third_party/core/wasi/0.11",
       "registry": "https://crates.io",
       "repository": "https://github.com/bytecodealliance/wasi",
       "commit": "f136a81add9706ed0b36ac3c4b0da943de8e690d",
@@ -985,6 +1753,114 @@
       "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
       "license_file": null,
       "classification_basis": "Experimental WASI API bindings for Rust"
+    },
+    {
+      "name": "wasi",
+      "version": "0.14.7+wasi-0.2.4",
+      "path": "third_party/core/wasi/0.14",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/bytecodealliance/wasi-rs",
+      "commit": "1df9d19d6993c78fa5e925792a04e45c0a9862d7",
+      "package_sha256": "883478de20367e224c0090af9cf5f9fa85bed63a95c1abf3afc5c083ebc06e8c",
+      "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "WASI API bindings for Rust"
+    },
+    {
+      "name": "wasip2",
+      "version": "1.0.4+wasi-0.2.12",
+      "path": "third_party/core/wasip2",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/bytecodealliance/wasi-rs",
+      "commit": "1edbc7add705b075d28436b26057ca9aa5a5a492",
+      "package_sha256": "b67efb37e106e55ce722a510d6b5f9c17f083e5fc79afc2badeb12cc313d9487",
+      "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "WASIp2 API bindings for Rust"
+    },
+    {
+      "name": "wasite",
+      "version": "1.0.2",
+      "path": "third_party/core/wasite",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/ardaku/wasite",
+      "commit": "3f7d6ad926848cd52c8d2142fdb2f43ab01ae8ec",
+      "package_sha256": "66fe902b4a6b8028a753d5424909b764ccf79b7a209eac9bf97e59cda9f71a42",
+      "license": "Apache-2.0 OR BSL-1.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "WASI Terminal Environment API"
+    },
+    {
+      "name": "wasm-bindgen",
+      "version": "0.2.129",
+      "path": "third_party/core/wasm-bindgen",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/wasm-bindgen/wasm-bindgen",
+      "commit": "165586f854c852bcbc4d14d8a75a0a0e0d0abc12",
+      "package_sha256": "9bb54f33acc68fd454578d9820b0bde1a1a3d17aa17bb7b6595806d02886d409",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Easy support for interacting between JS and Rust.\n"
+    },
+    {
+      "name": "wasm-bindgen-macro",
+      "version": "0.2.129",
+      "path": "third_party/core/wasm-bindgen-macro",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/wasm-bindgen/wasm-bindgen/tree/master/crates/macro",
+      "commit": "165586f854c852bcbc4d14d8a75a0a0e0d0abc12",
+      "package_sha256": "2e29d0c35b16e224a7eeb5cd2d25e3e1968fbd65604117b44d3b789d00ee8535",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Definition of the `#[wasm_bindgen]` attribute, an internal dependency\n"
+    },
+    {
+      "name": "wasm-bindgen-macro-support",
+      "version": "0.2.129",
+      "path": "third_party/core/wasm-bindgen-macro-support",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/wasm-bindgen/wasm-bindgen/tree/main/crates/macro-support",
+      "commit": "165586f854c852bcbc4d14d8a75a0a0e0d0abc12",
+      "package_sha256": "6f501a8bc3719dba86ef8ae4728879c08001bea749eb1333ac5b91e040e2a6b7",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Implementation APIs for the `#[wasm_bindgen]` attribute"
+    },
+    {
+      "name": "wasm-bindgen-shared",
+      "version": "0.2.129",
+      "path": "third_party/core/wasm-bindgen-shared",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/wasm-bindgen/wasm-bindgen/tree/master/crates/shared",
+      "commit": "165586f854c852bcbc4d14d8a75a0a0e0d0abc12",
+      "package_sha256": "23f0c9c52aa7cd7d77769a4cfe2a9adb1b331f489a41d912ce14513d5ab995c6",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Shared support between wasm-bindgen and wasm-bindgen cli, an internal\ndependency.\n"
+    },
+    {
+      "name": "web-sys",
+      "version": "0.3.106",
+      "path": "third_party/web/web-sys",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/wasm-bindgen/wasm-bindgen/tree/master/crates/web-sys",
+      "commit": "165586f854c852bcbc4d14d8a75a0a0e0d0abc12",
+      "package_sha256": "88261b9deccee56594c11a3460c462c41f58d148598fe70ad77070126a68aba4",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Bindings for all Web APIs, a procedurally generated crate from WebIDL\n"
+    },
+    {
+      "name": "whoami",
+      "version": "2.1.3",
+      "path": "third_party/core/whoami",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/ardaku/whoami",
+      "commit": "849ca13942dde703509c169952f83baa58d0fee8",
+      "package_sha256": "626c4bac6755d76ffc12cb01b2eac751db1996b9e0041de9aa02c8c211ddc82c",
+      "license": "Apache-2.0 OR BSL-1.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "Rust library for getting information about the current user and environment"
     },
     {
       "name": "windows-link",
@@ -1000,8 +1876,20 @@
     },
     {
       "name": "windows-sys",
+      "version": "0.52.0",
+      "path": "third_party/core/windows-sys/0.52",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "commit": "3a605cba064b26f2a198ac58085f8c8836f47c38",
+      "package_sha256": "282be5f36a8ce781fad8c8ae18fa3f9beff57ec1b52cb3de0789201425d9a33d",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Rust for Windows"
+    },
+    {
+      "name": "windows-sys",
       "version": "0.61.2",
-      "path": "third_party/core/windows-sys",
+      "path": "third_party/core/windows-sys/0.61",
       "registry": "https://crates.io",
       "repository": "https://github.com/microsoft/windows-rs",
       "commit": "32c3144490c016fe496a0aed769bce60987a2e9d",
@@ -1009,6 +1897,166 @@
       "license": "MIT OR Apache-2.0",
       "license_file": null,
       "classification_basis": "Rust for Windows"
+    },
+    {
+      "name": "windows-targets",
+      "version": "0.52.6",
+      "path": "third_party/core/windows-targets",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "commit": "db06b51c2ebb743efb544d40e3064efa49f28d38",
+      "package_sha256": "9b724f72796e036ab90c1021d4780d4d3d648aca59e491e6b98e725b84e99973",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Import libs for Windows"
+    },
+    {
+      "name": "windows_aarch64_gnullvm",
+      "version": "0.52.6",
+      "path": "third_party/core/windows_aarch64_gnullvm",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "commit": "db06b51c2ebb743efb544d40e3064efa49f28d38",
+      "package_sha256": "32a4622180e7a0ec044bb555404c800bc9fd9ec262ec147edd5989ccd0c02cd3",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Import lib for Windows"
+    },
+    {
+      "name": "windows_aarch64_msvc",
+      "version": "0.52.6",
+      "path": "third_party/core/windows_aarch64_msvc",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "commit": "db06b51c2ebb743efb544d40e3064efa49f28d38",
+      "package_sha256": "09ec2a7bb152e2252b53fa7803150007879548bc709c039df7627cabbd05d469",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Import lib for Windows"
+    },
+    {
+      "name": "windows_i686_gnu",
+      "version": "0.52.6",
+      "path": "third_party/core/windows_i686_gnu",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "commit": "db06b51c2ebb743efb544d40e3064efa49f28d38",
+      "package_sha256": "8e9b5ad5ab802e97eb8e295ac6720e509ee4c243f69d781394014ebfe8bbfa0b",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Import lib for Windows"
+    },
+    {
+      "name": "windows_i686_gnullvm",
+      "version": "0.52.6",
+      "path": "third_party/core/windows_i686_gnullvm",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "commit": "db06b51c2ebb743efb544d40e3064efa49f28d38",
+      "package_sha256": "0eee52d38c090b3caa76c563b86c3a4bd71ef1a819287c19d586d7334ae8ed66",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Import lib for Windows"
+    },
+    {
+      "name": "windows_i686_msvc",
+      "version": "0.52.6",
+      "path": "third_party/core/windows_i686_msvc",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "commit": "db06b51c2ebb743efb544d40e3064efa49f28d38",
+      "package_sha256": "240948bc05c5e7c6dabba28bf89d89ffce3e303022809e73deaefe4f6ec56c66",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Import lib for Windows"
+    },
+    {
+      "name": "windows_x86_64_gnu",
+      "version": "0.52.6",
+      "path": "third_party/core/windows_x86_64_gnu",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "commit": "db06b51c2ebb743efb544d40e3064efa49f28d38",
+      "package_sha256": "147a5c80aabfbf0c7d901cb5895d1de30ef2907eb21fbbab29ca94c5b08b1a78",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Import lib for Windows"
+    },
+    {
+      "name": "windows_x86_64_gnullvm",
+      "version": "0.52.6",
+      "path": "third_party/core/windows_x86_64_gnullvm",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "commit": "db06b51c2ebb743efb544d40e3064efa49f28d38",
+      "package_sha256": "24d5b23dc417412679681396f2b49f3de8c1473deb516bd34410872eff51ed0d",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Import lib for Windows"
+    },
+    {
+      "name": "windows_x86_64_msvc",
+      "version": "0.52.6",
+      "path": "third_party/core/windows_x86_64_msvc",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/microsoft/windows-rs",
+      "commit": "db06b51c2ebb743efb544d40e3064efa49f28d38",
+      "package_sha256": "589f6da84c646204747d1270a2a5661ea66ed1cced2631d546fdfb155959f9ec",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Import lib for Windows"
+    },
+    {
+      "name": "wit-bindgen",
+      "version": "0.57.1",
+      "path": "third_party/core/wit-bindgen",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/bytecodealliance/wit-bindgen",
+      "commit": "2e00369a643c0c8048b8636401e36b0cbf2dfb05",
+      "package_sha256": "1ebf944e87a7c253233ad6766e082e3cd714b5d03812acc24c318f549614536e",
+      "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "Rust bindings generator and runtime support for WIT and the component model.\nUsed when compiling Rust programs to the component model.\n"
+    },
+    {
+      "name": "x509-cert",
+      "version": "0.2.5",
+      "path": "third_party/networking/x509-cert",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/formats/tree/master/x509-cert",
+      "commit": "6215a53dba1d2e919287b6d38fd09bd8ca3f7761",
+      "package_sha256": "1301e935010a701ae5f8655edc0ad17c44bad3ac5ce8c39185f75453b720ae94",
+      "license": "Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "Pure Rust implementation of the X.509 Public Key Infrastructure Certificate\nformat as described in RFC 5280\n"
+    },
+    {
+      "name": "zeroize",
+      "version": "1.9.0",
+      "path": "third_party/core/zeroize",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/utils",
+      "commit": "0b715735a660a8566ccd240bf42489fe2ed98efb",
+      "package_sha256": "e13c156562582aa81c60cb29407084cdb54c4164760106ab78e6c5b0858cf64e",
+      "license": "Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "Securely clear secrets from memory with a simple trait built on\nstable Rust primitives which guarantee memory is zeroed using an\noperation will not be 'optimized away' by the compiler.\nUses a portable pure Rust implementation that works everywhere,\neven WASM!\n"
+    },
+    {
+      "name": "zeroize_derive",
+      "version": "1.5.0",
+      "path": "third_party/core/zeroize_derive",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/RustCrypto/utils",
+      "commit": "1ea42bb68f560a2909c856b20aa3c62901f6305c",
+      "package_sha256": "3c50655cbb0fe3fc43170059e702f1ce5e19b84cec58dc87b037a09935c2f328",
+      "license": "Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "Custom derive support for zeroize"
     }
+  ],
+  "lockfiles": [
+    "checks/grpc-smoke/Cargo.lock",
+    "checks/postgres-smoke/Cargo.lock"
   ]
 }
