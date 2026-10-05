@@ -1,0 +1,25 @@
+[package]
+name = "flax-postgres-smoke"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.89"
+publish = false
+
+[workspace]
+resolver = "2"
+
+[dependencies]
+tokio = { version = "=1.53.1", default-features = false, features = ["io-util", "macros", "net", "rt", "sync", "time"] }
+tokio-util = { version = "=0.7.18", default-features = false, features = ["rt", "codec"] }
+tokio-postgres = { version = "=0.7.18", default-features = false, features = ["runtime"] }
+deadpool-postgres = { version = "=0.14.2", default-features = false, features = ["rt_tokio_1", "runtime"] }
+tokio-postgres-rustls = { version = "=0.14.0", default-features = false, features = ["ring"] }
+rustls = { version = "=0.23.45", default-features = false, features = ["std", "ring", "tls12"] }
+# Pin the provider's transitive version without changing upstream feature defaults.
+ring = "=0.17.14"
+rustls-pki-types = { version = "=1.15.1", default-features = false, features = ["std"] }
+sha2 = { version = "=0.11.0", default-features = false }
+parking_lot = { version = "=0.12.5", default-features = false }
+
+[dev-dependencies]
+tokio = { version = "=1.53.1", default-features = false, features = ["rt-multi-thread", "test-util"] }
