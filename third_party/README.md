@@ -21,6 +21,8 @@
 | ring | 0.17.14 | rustls에 제공하는 암호화 기능 | [core/ring/](core/ring/) |
 | sha2 | 0.11.0 | SHA-256 등 SHA-2 해시 | [core/sha2/](core/sha2/) |
 | parking_lot | 0.12.5 | Mutex와 RwLock 등 동기화 및 잠금 | [core/parking_lot/](core/parking_lot/) |
+| serde_json | 1.0.151 | JSON 바이트 해석과 JSON/JSONL 출력 | [data/serde_json/](data/serde_json/) |
+| chrono | 0.4.45 | 달력 날짜 해석과 명시적 시간대 및 UTC 시각 변환 | [data/chrono/](data/chrono/) |
 
 표에 없는 디렉토리에는 주요 라이브러리가 사용하는 하위 의존성,
 연결 보조 패키지와 빌드용 패키지 등이 들어 있다.
@@ -31,7 +33,8 @@
 소비자는 필요한 패키지만 선언하고, 의존성 해결을 통해 필요한 하위 패키지를 연결한다.
 개별 하위 패키지는 이 안내에서 나열하지 않으며 전체 출처와 버전은 아래 소스 목록으로 관리한다.
 직접 선언할 패키지와 활성 기능은 [Cress 연결 안내](../docs/cress-integration.md)와
-[Rosemary 연결 안내](../docs/rosemary-integration.md)를 따른다.
+[Rosemary 연결 안내](../docs/rosemary-integration.md)와
+[JSON/날짜 연결 안내](../docs/json-date-integration.md)를 따른다.
 
 ## 분류
 
@@ -63,13 +66,13 @@ Cargo 레지스트리에서 배포한 패키지 소스를 함께 보관한다.
 주요 라이브러리 표의 버전은 대표 구성 요소의 버전이며,
 같은 원본 저장소의 모든 패키지가 동일한 버전을 사용한다는 뜻은 아니다.
 
-[rust-registry.json](rust-registry.json)은 Cargo 레지스트리에서 반입한 패키지 171개의
+[rust-registry.json](rust-registry.json)은 Cargo 레지스트리에서 반입한 패키지 176개의
 배포 버전, 원본 저장소, 가능한 경우 원본 커밋, 라이선스 식별자와 패키지 체크섬을
 기록한다.
 원본 패키지의 설명을 분류 근거로 함께 보관한다.
 crate에 포함된 라이선스와 `.cargo-checksum.json`도 보존한다.
 레지스트리 패키지는 배포 소스이며 원본 저장소 5개의 전체 소스 스냅샷과 구분한다.
-목록의 `lockfiles`는 gRPC와 PostgreSQL 소비 검증의 잠금 파일을 연결하며,
+목록의 `lockfiles`는 gRPC, PostgreSQL과 JSON/날짜 소비 검증의 잠금 파일을 연결하며,
 기존 `lockfile` 필드는 gRPC 경로를 유지한다.
 
 ## 원본 보존과 업데이트
@@ -89,7 +92,8 @@ crate에 포함된 라이선스와 `.cargo-checksum.json`도 보존한다.
 원본 저장소 안에 이미 포함된 보조 패키지, 예제, 테스트와 외부 코드는 내부 구조대로 유지한다.
 
 하위 의존성은 [gRPC 검증 구성](../checks/grpc-smoke/Cargo.toml),
-[PostgreSQL 검증 구성](../checks/postgres-smoke/Cargo.toml)과
+[PostgreSQL 검증 구성](../checks/postgres-smoke/Cargo.toml),
+[JSON/날짜 검증 구성](../checks/json-date-smoke/Cargo.toml)과
 Flax 루트의 CMake 구성에 필요한 범위를 확보한다.
 Cargo의 오프라인 해결에 필요한 대상별 패키지도 보존한다.
 모든 upstream 예제, 테스트, 선택 기능과 대상 플랫폼의 빌드를 보장하는 범위는 아니다.

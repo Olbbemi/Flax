@@ -1,0 +1,12 @@
+{
+  "symbol": "005930",
+  "market": "J",
+  "requested_start": "2025-10-02",
+  "requested_end": "2026-10-01",
+  "samples": [
+    {
+      "file": "daily-raw-01.json",
+      "retrieved_at": "2026-10-02T09:09:35.581009+09:00"
+    }
+  ]
+}

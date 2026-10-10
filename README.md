@@ -21,6 +21,7 @@ Flax는 Cress, Walnut, Iris와 Rosemary의 의존성 공급과 연결 구성을 
 | PostgreSQL 접속과 연결 풀 | tokio-postgres, deadpool-postgres |
 | TLS와 암호화 및 해시 | rustls, ring, sha2 |
 | 동기화와 잠금 | parking_lot |
+| JSON 해석과 출력, 날짜와 시각 변환 | serde_json, chrono |
 
 이 목록은 직접 사용하는 주요 구성을 설명한다.
 각 라이브러리에 필요한 하위 의존성과 빌드용 패키지도 함께 보관한다.
@@ -78,6 +79,14 @@ DB 연결 검사는 PostgreSQL 16, C 컴파일러와 OpenSSL이 설치된 환경
 별도 검증 서버를 준비하고 검사 후 정리한다.
 PostgreSQL 서버와 Rust 도구 체인은 환경에 설치하며 Flax의 반입 소스에 포함하지 않는다.
 
+[JSON과 날짜 연결 안내](docs/json-date-integration.md)는 serde_json과 chrono의
+고정 버전, 최소 기능과 오프라인 소비 방법을 설명한다.
+protoc 없는 cargo-db 경로로 기본 JSON/JSONL 및 날짜와 시각 변환을 검사한다.
+
+```sh
+python3 scripts/flax.py cargo-db test --manifest-path checks/json-date-smoke/Cargo.toml --locked --offline
+```
+
 ## 할 일 경로와 Git 훅
 
 할 일과 요청은 `data/todo/`에 보관한다.
@@ -125,11 +134,16 @@ python3 -B -m unittest discover -s checks/hooks -v
 
 ## 제공 및 검증 범위
 
-Rust gRPC, C++ Protobuf와 PostgreSQL 의존성의 오프라인 소비 구성을 제공한다.
+Rust gRPC, C++ Protobuf, PostgreSQL과 JSON/날짜 의존성의 오프라인 소비 구성을 제공한다.
 PostgreSQL 구성은 SCRAM 인증, ring 기반 TLS, SHA-256과 parking_lot 잠금을 검증한다.
+JSON/날짜 구성은 문자열 정수의 정확한 변환, JSON/JSONL 출력과 달력 및 명시적 시간대 변환을 검사한다.
 gRPC 구성의 TLS와 압축, gRPC C++/Python 구성은 현재 공급 범위에 포함하지 않는다.
 
 소스를 보관한 범위와 실제 빌드 및 실행을 검증한 범위는 구분한다.
 환경, 활성 기능과 검사 결과는 각 소비 안내에서 확인하고,
 이번 PostgreSQL 공급의 단계별 결과는
 [작업 기록](specs/dependencies/rosemary-storage/qa-report-001.md)에서 확인한다.
+JSON/날짜 공급의 최종 실행 및 교차 검토는
+[검증 기록](specs/dependencies/json-date-dependencies/verification-report.md),
+사용자 확인과 최종 적용 범위는
+[QA 기록](specs/dependencies/json-date-dependencies/qa-report.md)에서 확인한다.

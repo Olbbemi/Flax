@@ -1,0 +1,17 @@
+{
+  "rt_cd": "0",
+  "output1": {
+    "stck_shrn_iscd": "005930"
+  },
+  "output2": [
+    {
+      "stck_bsop_date": "20261001",
+      "stck_oprc": "266500",
+      "stck_hgpr": "276000",
+      "stck_lwpr": "264500",
+      "stck_clpr": "276000",
+      "acml_vol": "13741073",
+      "acml_tr_pbmn": "3726945890883"
+    }
+  ]
+}

@@ -27,7 +27,8 @@ ring을 제외한 직접 의존성은 `default-features = false`다.
 [검증용 Cargo.lock](../checks/postgres-smoke/Cargo.lock)은 전이 및 대상별 버전을 고정한다.
 [소스 목록](../third_party/rust-registry.json)은 배포 체크섬, 출처와 라이선스를 기록하며,
 각 소스의 라이선스 파일과 `.cargo-checksum.json`을 보존한다.
-기존 gRPC용 84개에 87개를 추가하여 레지스트리 패키지는 총 171개다.
+Rosemary 저장 의존성 공급 당시 기존 gRPC용 84개에 87개를 추가하여 총 171개를 준비했다.
+이후 추가한 패키지까지 포함한 현재 전체 공급 목록은 위 소스 목록을 따른다.
 
 외부 원본은 모두 `third_party/` 아래에서 관리한다.
 소비 범위는 각 프로젝트의 선언, 잠금 파일, 활성 기능과 대상 OS로 결정한다.

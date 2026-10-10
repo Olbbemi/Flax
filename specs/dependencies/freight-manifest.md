@@ -15,3 +15,21 @@
 Git에서 제외되는 로컬 요청서와 실행 로그의 유무를 단계 완료 상태로 해석하지 않는다.
 [검토자 리뷰](rosemary-storage/verification-001-review-001.md)는 당시의 원문이며,
 지적의 해소 여부와 최종 호출 결과는 검증 기록을 따른다.
+
+## [JSON/날짜 의존성 공급](json-date-dependencies/)
+
+- stages: [discussion, design, implementation, verification, qa]
+- reference_reports:
+  - [Rosemary 공급 논의](rosemary-storage/discussion-report-001.md)
+  - [Rosemary 공급 설계](rosemary-storage/design-report-001.md)
+  - [Rosemary 공급 최종 QA](rosemary-storage/qa-report-001.md)
+
+요청 범위, 요구사항과 제약 및 설계 인계는 [논의](json-date-dependencies/discussion-report.md)에 정리한다.
+기존 Rosemary 공급의 소스 관리와 소비 경로를 참고하며, 신규 두 라이브러리의 버전과 기능은 별도로 확인한다.
+고정 구성, 원본 배치와 검증/QA 계획 및 준비 근거는 [설계](json-date-dependencies/design-report.md)를 따른다.
+[구현](json-date-dependencies/implementation-report.md)은 원본 반입과 독립 소비 테스트,
+최종 코드 실행 및 기존 소비의 사전 실행 근거를 기록한다.
+[검증](json-date-dependencies/verification-report.md)은 V1-V9의 최종 실행,
+원본/잠금 파일 보존과 교차 검토 및 QA 인계를 기록한다.
+[QA](json-date-dependencies/qa-report.md)는 고정 구성/소비 안내/검증 경계의 사용자 확인과
+완료 결과와 공급 커밋/실제 반환의 후속 운영 상태를 기록한다.

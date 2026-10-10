@@ -51,6 +51,18 @@
       "classification_basis": "A synchronization primitive for task wakeup"
     },
     {
+      "name": "autocfg",
+      "version": "1.5.1",
+      "path": "third_party/core/autocfg",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/cuviper/autocfg",
+      "commit": "2799b09c24e6632f8e653c5cd8fc303e85a906ba",
+      "package_sha256": "f2032f911046de80f0a198e0901378627c33f59ea0ac00e363d481118bd70a53",
+      "license": "Apache-2.0 OR MIT",
+      "license_file": null,
+      "classification_basis": "Automatic cfg for Rust compiler features"
+    },
+    {
       "name": "axum",
       "version": "0.8.9",
       "path": "third_party/web/axum",
@@ -193,6 +205,18 @@
       "license": "MIT OR Apache-2.0",
       "license_file": null,
       "classification_basis": "The ChaCha20 stream cipher (RFC 8439) implemented in pure Rust using traits\nfrom the RustCrypto `cipher` crate, with optional architecture-specific\nhardware acceleration (AVX2, SSE2). Additionally provides the ChaCha8, ChaCha12,\nXChaCha20, XChaCha12 and XChaCha8 stream ciphers, and also optional\nrand_core-compatible RNGs based on those ciphers.\n"
+    },
+    {
+      "name": "chrono",
+      "version": "0.4.45",
+      "path": "third_party/data/chrono",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/chronotope/chrono",
+      "commit": "170338250e836976a211e64728ec956e45e78a39",
+      "package_sha256": "1aa79e62e7697b8e29b513a68abacf485adcd1fe8284a4316c5ae868e6633327",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Date and time library for Rust"
     },
     {
       "name": "cmov",
@@ -903,6 +927,18 @@
       "classification_basis": "A multimap implementation."
     },
     {
+      "name": "num-traits",
+      "version": "0.2.19",
+      "path": "third_party/core/num-traits",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/rust-num/num-traits",
+      "commit": "7ec3d41d39b28190ec1d42db38021107b3951f3a",
+      "package_sha256": "071dfc062690e90b734c0b2273ce72ad0ffa95f0c74596bc250dcfd960262841",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "Numeric traits for generic mathematics"
+    },
+    {
       "name": "objc2-core-foundation",
       "version": "0.3.2",
       "path": "third_party/core/objc2-core-foundation",
@@ -1333,6 +1369,18 @@
       "license": "MIT OR Apache-2.0",
       "license_file": null,
       "classification_basis": "Macros 1.1 implementation of #[derive(Serialize, Deserialize)]"
+    },
+    {
+      "name": "serde_json",
+      "version": "1.0.151",
+      "path": "third_party/data/serde_json",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/serde-rs/json",
+      "commit": "de8500740cdcabffb9734f503e4889def823cf10",
+      "package_sha256": "c841b55ecdae098c80dcae9cf767f6f8a0c2cdb3416bbef72181df4d0fe73f14",
+      "license": "MIT OR Apache-2.0",
+      "license_file": null,
+      "classification_basis": "A JSON serialization file format"
     },
     {
       "name": "sha2",
@@ -2053,10 +2101,23 @@
       "license": "Apache-2.0 OR MIT",
       "license_file": null,
       "classification_basis": "Custom derive support for zeroize"
+    },
+    {
+      "name": "zmij",
+      "version": "1.0.23",
+      "path": "third_party/data/zmij",
+      "registry": "https://crates.io",
+      "repository": "https://github.com/dtolnay/zmij",
+      "commit": "7b7cc48b58028e8af7be87e94c0c1c8936f1a57c",
+      "package_sha256": "29666d0abbfad1e3dc4dcf6144730dd3a3ab225bbbdac83319345b1b44ccfc1b",
+      "license": "MIT",
+      "license_file": null,
+      "classification_basis": "A double-to-string conversion algorithm based on Schubfach and xjb"
     }
   ],
   "lockfiles": [
     "checks/grpc-smoke/Cargo.lock",
-    "checks/postgres-smoke/Cargo.lock"
+    "checks/postgres-smoke/Cargo.lock",
+    "checks/json-date-smoke/Cargo.lock"
   ]
 }
